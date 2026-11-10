@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"><meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><meta name="viewport" content="width=device-width, initial-scale=1"><title>Smith Photography — Sayre, PA</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400&display=swap" rel="stylesheet"><style>html,body{margin:0;background:#141312}body{-webkit-font-smoothing:antialiased}a{color:#f2efe9}a:hover{color:oklch(0.78 0.1 55)}*{box-sizing:border-box}input,textarea,button{font-family:inherit}</style></helmet>
+<div ref="{{ rootRef }}" style="min-height:100vh;background:#141312;color:#f2efe9;font-family:'Hanken Grotesk',sans-serif;container-type:inline-size">
+
+<header style="position:sticky;top:0;z-index:50;padding-bottom:28px;margin-bottom:-28px;background:linear-gradient(180deg,rgba(10,10,9,.9) 0%,rgba(10,10,9,.72) 55%,rgba(10,10,9,0) 100%);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);mask-image:linear-gradient(180deg,#000 60%,transparent 100%);-webkit-mask-image:linear-gradient(180deg,#000 60%,transparent 100%)">
+<div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,4cqw,48px);height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+<a href="#" onClick="{{ goHome }}" aria-label="Smith Photography — home" style="display:flex;align-items:center;flex:none"><img src="assets/logo-white.png" alt="Smith Photography" style="height:clamp(32px,3.4cqw,40px);width:auto;display:block"></a>
+<sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+<nav style="display:flex;align-items:center;gap:28px">
+<sc-for list="{{ nav }}" as="item" hint-placeholder-count="6"><a href="#" onClick="{{ item.go }}" style="font:500 16px/1 'Hanken Grotesk',sans-serif;text-decoration:none;color:{{ item.color }};white-space:nowrap">{{ item.label }}</a></sc-for>
+<a href="#" onClick="{{ goContact }}" style="display:inline-flex;align-items:center;height:44px;padding:0 18px;border-radius:10px;background:oklch(0.74 0.11 55);color:#141312;font:600 16px/1 'Hanken Grotesk',sans-serif;text-decoration:none;white-space:nowrap">Book a session</a>
+</nav>
+</sc-if>
+<sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+<button onClick="{{ toggleMenu }}" style="height:44px;padding:0 4px;background:none;border:none;color:#f2efe9;font:600 17px/1 'Hanken Grotesk',sans-serif;cursor:pointer">{{ menuLabel }}</button>
+</sc-if>
+</div>
+</header>
+
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position:fixed;inset:72px 0 0 0;z-index:49;background:#141312;padding:12px clamp(20px,4cqw,48px) 32px;display:flex;flex-direction:column;overflow-y:auto">
+<sc-for list="{{ navAll }}" as="item" hint-placeholder-count="8"><a href="#" onClick="{{ item.go }}" style="display:flex;align-items:center;justify-content:space-between;min-height:64px;border-bottom:1px solid #2a2825;font:600 26px/1.1 'Hanken Grotesk',sans-serif;letter-spacing:-.02em;text-decoration:none;color:{{ item.color }}"><span>{{ item.label }}</span><span style="color:#5f5b55;font-weight:400">→</span></a></sc-for>
+<div style="display:flex;flex-direction:column;gap:10px;margin-top:28px">
+<a href="#" onClick="{{ goContact }}" style="display:flex;align-items:center;justify-content:center;height:56px;border-radius:12px;background:oklch(0.74 0.11 55);color:#141312;font:600 17px/1 'Hanken Grotesk',sans-serif;text-decoration:none">Book a session</a>
+<a href="tel:5708881363" style="display:flex;align-items:center;justify-content:center;height:56px;border-radius:12px;background:#24221f;font:600 17px/1 'Hanken Grotesk',sans-serif;text-decoration:none">Call 570-888-1363</a>
+</div>
+</div>
+</sc-if>
+
+<main>
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+<div style="position:relative;overflow:hidden;background:#0a0a09">
+<div data-bg="1" style="position:absolute;inset:-30%;background:radial-gradient(38% 34% at 28% 30%,rgba(120,118,112,.30) 0%,rgba(120,118,112,0) 100%),radial-gradient(34% 40% at 74% 46%,rgba(80,79,75,.34) 0%,rgba(80,79,75,0) 100%);pointer-events:none"></div>
+<div data-bg="2" style="position:absolute;inset:-30%;background:radial-gradient(30% 30% at 60% 22%,rgba(150,148,142,.16) 0%,rgba(150,148,142,0) 100%),radial-gradient(36% 30% at 30% 70%,rgba(60,59,56,.4) 0%,rgba(60,59,56,0) 100%);pointer-events:none"></div>
+<div style="position:absolute;left:0;right:0;bottom:0;height:40%;background:linear-gradient(180deg,rgba(20,19,18,0),#141312);pointer-events:none"></div>
+<section data-screen-label="Home" style="position:relative;max-width:1240px;margin:0 auto;padding:clamp(48px,8cqw,96px) clamp(20px,4cqw,48px) 0;display:flex;flex-direction:column;align-items:center;text-align:center">
+<h1 data-rise="1" style="margin:0;max-width:900px;font:700 clamp(42px,6.6cqw,80px)/1.02 'Hanken Grotesk',sans-serif;letter-spacing:-.045em;text-wrap:balance">Timeless photos, made right here in Sayre.</h1>
+<p data-rise="2" style="margin:22px 0 0;max-width:620px;font:400 clamp(18px,1.8cqw,21px)/1.5 'Hanken Grotesk',sans-serif;color:#a9a49b;text-wrap:pretty">Nearly 30 years of great lighting and real expressions — weddings, seniors, families and businesses across the Twin Tiers.</p>
+<div data-rise="3" style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:32px">
+<a href="#" onClick="{{ goContact }}" style="display:inline-flex;align-items:center;justify-content:center;height:54px;padding:0 26px;border-radius:12px;background:oklch(0.74 0.11 55);color:#141312;font:600 17px/1 'Hanken Grotesk',sans-serif;text-decoration:none">Book a session</a>
+<a href="tel:5708881363" style="display:inline-flex;align-items:center;justify-content:center;height:54px;padding:0 24px;border-radius:12px;background:#24221f;font:600 17px/1 'Hanken Grotesk',sans-serif;text-decoration:none">Call 570-888-1363</a>
+</div>
+<div data-rise="4" style="width:100cqw;flex:none;margin-top:clamp(48px,7cqw,80px);height:clamp(380px,60cqw,780px);overflow:hidden"><img data-kb="" src="assets/home_couple.jpg" alt="A couple under an autumn tree" style="width:100%;height:100%;object-fit:cover;object-position:50% 40%;display:block"></div>
+</section>
+</div>
+
+<section data-reveal="" style="max-width:1240px;margin:0 auto;padding:clamp(72px,10cqw,128px) clamp(20px,4cqw,48px) 0">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(32px,5cqw,80px);align-items:center">
+<div>
+<div style="font:500 17px/1 'Hanken Grotesk',sans-serif;color:oklch(0.8 0.09 55)">What we shoot</div>
+<h2 style="margin:16px 0 clamp(24px,3cqw,36px);font:700 clamp(34px,4.4cqw,56px)/1.02 'Hanken Grotesk',sans-serif;letter-spacing:-.045em;text-wrap:balance">What are you celebrating?</h2>
+<div style="border-bottom:1px solid #2a2825">
+<sc-for list="{{ services }}" as="s" hint-placeholder-count="5">
+<button type="button" onMouseEnter="{{ s.pick }}" onFocus="{{ s.pick }}" onClick="{{ s.pick }}" style="width:100%;display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:clamp(14px,1.6cqw,20px) 0;background:none;border:none;border-top:1px solid #2a2825;text-align:left;cursor:pointer;color:{{ s.color }};transition:color .35s ease">
+<span style="font:600 clamp(26px,3.4cqw,42px)/1.05 'Hanken Grotesk',sans-serif;letter-spacing:-.035em">{{ s.name }}</span>
+<span style="font:500 17px/1 'Hanken Grotesk',sans-serif;color:{{ s.priceColor }};white-space:nowrap;transition:color .35s ease">{{ s.price }}</span>
+</button>
+</sc-for>
+</div>
+</div>
+<div style="position:relative;width:100%;aspect-ratio:4/5;max-height:680px;border-radius:clamp(18px,2cqw,26px);overflow:hidden;background:#1c1b19">
+<sc-for list="{{ services }}" as="s" hint-placeholder-count="1"><img src="{{ s.img }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{ s.pos }};opacity:{{ s.op }};transform:scale({{ s.scale }});transition:opacity .7s ease,transform 1.4s cubic-bezier(.2,.7,.2,1)"></sc-for>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,19,18,0) 50%,rgba(20,19,18,.9) 100%)"></div>
+<div style="position:absolute;left:0;right:0;bottom:0;padding:clamp(20px,3cqw,32px);display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px">
+<span style="font:400 19px/1.4 'Hanken Grotesk',sans-serif;color:#e4dfd6;max-width:300px">{{ active.detail }}</span>
+<a href="#" onClick="{{ active.go }}" style="display:inline-flex;align-items:center;height:52px;padding:0 22px;border-radius:12px;background:#f2efe9;color:#141312;font:600 17px/1 'Hanken Grotesk',sans-serif;text-decoration:none;white-space:nowrap">{{ active.cta }}</a>
+</div>
+</div>
+</div>
+</section>
+
+<section data-reveal="" style="max-width:1240px;margin:0 auto;padding:clamp(72px,10cqw,128px) clamp(20px,4cqw,48px) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,5cqw,72px);align-items:center">
+<div style="aspect-ratio:4/5;max-height:560px;width:100%;border-radius:20px;background:repeating-linear-gradient(135deg,#1c1b19 0 14px,#211f1c 14px 28px);border:1px solid #2a2825;display:flex;align-items:flex-end;padding:24px"><span style="font:400 16px/1.3 'DM Mono',monospace;color:#8a857c">Photo of Jim in the studio</span></div>
+<div>
+<div style="font:500 17px/1 'Hanken Grotesk',sans-serif;color:oklch(0.8 0.09 55)">Since 1999</div>
+<h2 style="margin:16px 0 0;font:700 clamp(32px,4cqw,48px)/1.05 'Hanken Grotesk',sans-serif;letter-spacing:-.04em;text-wrap:balance">Classic yet contemporary. Never one to follow trends.</h2>
+<p style="margin:24px 0 0;font:400 19px/1.6 'Hanken Grotesk',sans-serif;color:#c4bfb6;text-wrap:pretty">Owner and photographer Jim Smith has been working in studios for nearly 30 years. Thousands of sessions, weddings and events have honed his style — a focus on the subject and great lighting.</p>
+<a href="#" onClick="{{ goAbout }}" style="display:inline-flex;margin-top:28px;font:600 17px/1 'Hanken Grotesk',sans-serif;color:oklch(0.8 0.09 55);text-decoration:none">More about the studio →</a>
+</div>
+</section>
+
+<section data-reveal="" style="max-width:1240px;margin:0 auto;padding:clamp(72px,10cqw,128px) clamp(20px,4cqw,48px) 0">
+<div style="position:relative;border-radius:clamp(16px,2cqw,24px);overflow:hidden;min-height:clamp(440px,48cqw,600px);display:flex;align-items:flex-end">
+<img src="assets/wed_garden.jpg" alt="Bride and groom in a garden" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,19,18,0) 30%,rgba(20,19,18,.88) 100%)"></div>
+<div style="position:relative;padding:clamp(24px,4cqw,48px);display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;width:100%">
+<div style="max-width:560px">
+<h2 style="margin:0;font:700 clamp(32px,4cqw,52px)/1.03 'Hanken Grotesk',sans-serif;letter-spacing:-.04em">Weddings, simply priced.</h2>
+<p style="margin:14px 0 0;font:400 19px/1.5 'Hanken Grotesk',sans-serif;color:#d6d1c8">8 hours of coverage, all of your edited digital files and the copyright release.</p>
+</div>
+<div style="display:flex;align-items:center;gap:20px">
+<span style="font:700 clamp(36px,4cqw,52px)/1 'Hanken Grotesk',sans-serif;letter-spacing:-.04em">$1,999</span>
+<a href="#" onClick="{{ goWeddings }}" style="display:inline-flex;align-items:center;height:54px;padding:0 24px;border-radius:12px;background:#f2efe9;color:#141312;font:600 17px/1 'Hanken Grotesk',sans-serif;text-decoration:none">See weddings</a>
+</div>
+</div>
+</div>
+</section>
+
+<section data-reveal="" style="max-width:1240px;margin:0 auto;padding:clamp(72px,10cqw,128px) clamp(20px,4cqw,48px) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px">
+<div style="background:#1c1b19;border:1px solid #2a2825;border-radius:20px;padding:clamp(24px,3cqw,36px);display:flex;flex-direction:column;gap:10px"><div style="font:700 clamp(40px,4.4cqw,56px)/1 'Hanken Grotesk',sans-serif;letter-spacing:-.04em">10,000</div><div style="font:400 18px/1.45 'Hanken Grotesk',sans-serif;color:#a9a49b">school portraits a year, from preschool through seniors.</div></div>
+<div style="background:#1c1b19;border:1px solid #2a2825;border-radius:20px;padding:clamp(24px,3cqw,36px);display:flex;flex-direction:column;gap:10px"><div style="font:700 clamp(40px,4.4cqw,56px)/1 'Hanken Grotesk',sans-serif;letter-spacing:-.04em">12+</div><div style="font:400 18px/1.45 'Hanken Grotesk',sans-serif;color:#a9a49b">youth sports leagues — and every league earns commission on photo sales.</div></div>
+<div style="background:#1c1b19;border:1px solid #2a2825;border-radius:20px;padding:clamp(24px,3cqw,36px);display:flex;flex-direction:column;gap:10px"><div style="font:700 clamp(40px,4.4cqw,56px)/1 'Hanken Grotesk',sans-serif;letter-spacing:-.04em">$30</div><div style="font:400 18px/1.45 'Hanken Grotesk',sans-serif;color:#a9a49b">studio portrait sessions. Collections start at $70.</div></div>
+</section>
+</sc-if>
+
+<sc-if value="{{ isWeddings }}" hint-placeholder-val="{{ false }}">
+<section data-screen-label="Weddings" style="position:relative;height:clamp(520px,84vh,880px);overflow:hidden;display:flex;align-items:flex-end;background:#0e0d0c">
+<div data-parallax="" style="position:absolute;inset:0;will-change:transform"><img data-kb="" src="assets/wed_garden.jpg" alt="" style="width:100%;height:118%;object-fit:cover;object-position:50% 45%;display:block"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,19,18,.2) 0%,rgba(20,19,18,0) 30%,rgba(20,19,18,.35) 60%,rgba(20,19,18,.94) 100%)"></div>
+<div style="position:relative;width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(20px,4cqw,48px) clamp(40px,6cqw,80px)">
+<div data-rise="1" style="font:500 17px/1 'Hanken Grotesk',sans-serif;color:oklch(0.82 0.09 55)">Weddings</div>
+<h1 data-rise="2" style="margin:18px 0 0;max-width:900px;font:700 clamp(44px,7cqw,88px)/1 'Hanken Grotesk',sans-serif;letter-spacing:-.045em;text-wrap:balance">Timeless weddings, all over New York and Pennsylvania.</h1>
+
+</div>
+</section>
+<section style="max-width:1240px;margin:0 auto;padding:clamp(56px,7cqw,96px) clamp(20px,4cqw,48px) 0">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(24px,4cqw,56px);margin-top:clamp(32px,4cqw,48px);align-items:start">
+<p style="margin:0;font:400 19px/1.6 'Hanken Grotesk',sans-serif;color:#c4bfb6;text-wrap:pretty">Since 1999, photographer Jim Smith has been capturing stunning images of weddings all over upstate New York and Pennsylvania. With an easy going and relaxed approach, Jim works to capture the emotion and feelings unique to each wedding.</p>
+<div style="background:#1c1b19;border:1px solid #2a2825;border-radius:20px;padding:clamp(24px,3cqw,32px)">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px"><span style="font:600 20px/1.2 'Hanken Grotesk',sans-serif">Wedding coverage</span><span style="font:700 40px/1 'Hanken Grotesk',sans-serif;letter-spacing:-.04em">$1,999</span></div>
+<div style="display:flex;flex-direction:column;margin-top:18px;font:400 18px/1.4 'Hanken Grotesk',sans-serif;color:#c4bfb6"><div style="padding:12px 0;border-top:1px solid #2a2825">8 hours of coverage</div><div style="padding:12px 0;border-top:1px solid #2a2825">All of your edited digital files</div><div style="padding:12px 0;border-top:1px solid #2a2825">Copyright release</div></div>
+<a href="#" onClick="{{ goContact }}" style="display:flex;align-items:center;justify-content:center;height:54px;margin-top:12px;border-radius:12px;background:oklch(0.74 0.11 55);color:#141312;font:600 17px/1 'Hanken Grotesk',sans-serif;text-decoration:none">Check your date</a>
+</div>
+</div>
+<div style="columns:150px 3;column-gap:14px;margin-top:clamp(48px,6cqw,72px)"><sc-for list="{{ galWeddings }}" as="g" hint-placeholder-count="12"><img src="{{ g }}" alt="" loading="lazy" data-reveal="" style="width:100%;display:block;margin:0 0 14px;border-radius:14px;break-inside:avoid"></sc-for></div>
+</section>
+</sc-if>
+
+<sc-if value="{{ isSeniors }}" hint-placeholder-val="{{ false }}">
+<section data-screen-label="Senior photos" style="position:relative;height:clamp(520px,84vh,880px);overflow:hidden;display:flex;align-items:flex-end;background:#0e0d0c">
+<div data-parallax="" style="position:absolute;inset:0;will-change:transform"><img data-kb="" src="assets/seniors/29.jpg" alt="" style="width:100%;height:118%;object-fit:cover;object-position:50% 40%;display:block"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,19,18,.2) 0%,rgba(20,19,18,0) 30%,rgba(20,19,18,.35) 60%,rgba(20,19,18,.94) 100%)"></div>
+<div style="position:relative;width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(20px,4cqw,48px) clamp(40px,6cqw,80px)">
+<div data-rise="1" style="font:500 17px/1 'Hanken Grotesk',sans-serif;color:oklch(0.82 0.09 55)">Senior photos</div>
+<h1 data-rise="2" style="margin:18px 0 0;max-width:900px;font:700 clamp(44px,7cqw,88px)/1 'Hanken Grotesk',sans-serif;letter-spacing:-.045em;text-wrap:balance">Focused on you and your personality.</h1>
+<p data-rise="3" style="margin:22px 0 0;max-width:640px;font:400 clamp(18px,1.8cqw,21px)/1.55 'Hanken Grotesk',sans-serif;color:#d6d1c8;text-wrap:pretty">The area's premiere senior studio. No cheesy props or fake scenery — just great lighting, expressions and a focus on you.</p>
+</div>
+</section>
+<section style="max-width:1240px;margin:0 auto;padding:clamp(56px,7cqw,96px) clamp(20px,4cqw,48px) 0">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:14px">
+<sc-for list="{{ seniorFacts }}" as="f" hint-placeholder-count="4"><div data-reveal="" style="background:#1c1b19;border:1px solid #2a2825;border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:8px"><span style="font:700 40px/1 'Hanken Grotesk',sans-serif;letter-spacing:-.04em">{{ f.big }}</span><span style="font:400 17px/1.4 'Hanken Grotesk',sans-serif;color:#a9a49b">{{ f.label }}</span></div></sc-for>
+</div>
+<div style="columns:150px 3;column-gap:14px;margin-top:clamp(48px,6cqw,72px)"><sc-for list="{{ galSeniors }}" as="g" hint-placeholder-count="12"><img src="{{ g }}" alt="" loading="lazy" data-reveal="" style="width:100%;display:block;margin:0 0 14px;border-radius:14px;break-inside:avoid"></sc-for></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(24px,4cqw,48px);margin-top:clamp(40px,5cqw,64px)">
+<div><h3 style="margin:0;font:600 24px/1.2 'Hanken Grotesk',sans-serif;letter-spacing:-.02em">In the studio</h3><p style="margin:12px 0 0;font:400 18px/1.6 'Hanken Grotesk',sans-serif;color:#c4bfb6;text-wrap:pretty">A variety of simple and unique backgrounds that offer color and texture to your photos without overwhelming the image.</p></div>
+<div><h3 style="margin:0;font:600 24px/1.2 'Hanken Grotesk',sans-serif;letter-spacing:-.02em">All over town</h3><p style="margin:12px 0 0;font:400 18px/1.6 'Hanken Grotesk',sans-serif;color:#c4bfb6;text-wrap:pretty">Dozens of great spots within walking distance of the studio — from soft and natural to gritty and urban.</p></div>
+<div><h3 style="margin:0;font:600 24px/1.2 'Hanken Grotesk',sans-serif;letter-spacing:-.02em">Something totally unique</h3><p style="margin:12px 0 0;font:400 18px/1.6 'Hanken Grotesk',sans-serif;color:#c4bfb6;text-wrap:pretty">We schedule location work based on availability. Bring us your crazy idea and we'll try to make it happen.</p></div>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{ isPortraits }}" hint-placeholder-val="{{ false }}">
+<section data-screen-label="Portraits" style="position:relative;height:clamp(520px,84vh,880px);overflow:hidden;display:flex;align-items:flex-end;background:#0e0d0c">
+<div data-parallax="" style="position:absolute;inset:0;will-change:transform"><img data-kb="" src="assets/port_baby_crate.jpg" alt="" style="width:100%;height:118%;object-fit:cover;object-position:62% 22%;display:block"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,19,18,.2) 0%,rgba(20,19,18,0) 30%,rgba(20,19,18,.35) 60%,rgba(20,19,18,.94) 100%)"></div>
+<div style="position:relative;width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(20px,4cqw,48px) clamp(40px,6cqw,80px)">
+<div data-rise="1" style="font:500 17px/1 'Hanken Grotesk',sans-serif;color:oklch(0.82 0.09 55)">Family &amp; kids</div>
+<h1 data-rise="2" style="margin:18px 0 0;max-width:900px;font:700 clamp(44px,7cqw,88px)/1 'Hanken Grotesk',sans-serif;letter-spacing:-.045em;text-wrap:balance">More than anything, we love portraits.</h1>
+<p data-rise="3" style="margin:22px 0 0;max-width:640px;font:400 clamp(18px,1.8cqw,21px)/1.55 'Hanken Grotesk',sans-serif;color:#d6d1c8;text-wrap:pretty">From classic to the cutting edge — families, kids and babies, even your beloved pet.</p>
+</div>
+</section>
+<section style="max-width:1240px;margin:0 auto;padding:clamp(56px,7cqw,96px) clamp(20px,4cqw,48px) 0">
+<div style="columns:150px 3;column-gap:14px"><sc-for list="{{ galPortraits }}" as="g" hint-placeholder-count="9"><img src="{{ g }}" alt="" loading="lazy" data-reveal="" style="width:100%;display:block;margin:0 0 14px;border-radius:14px;break-inside:avoid"></sc-for></div>
+<h2 style="margin:clamp(56px,7cqw,88px) 0 0;font:700 clamp(32px,4cqw,48px)/1.05 'Hanken Grotesk',sans-serif;letter-spacing:-.04em">Portrait pricing</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:16px;margin-top:28px;align-items:start">
+<div style="display:flex;flex-direction:column;gap:16px">
+<div data-reveal="" style="background:#1c1b19;border:1px solid #2a2825;border-radius:20px;padding:clamp(22px,3cqw,32px)"><h3 style="margin:0 0 8px;font:600 21px/1.2 'Hanken Grotesk',sans-serif">Session fees</h3><sc-for list="{{ sessionFees }}" as="r" hint-placeholder-count="2"><div style="display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-top:1px solid #2a2825;font:400 18px/1.35 'Hanken Grotesk',sans-serif"><span style="color:#c4bfb6">{{ r.name }}</span><span style="font-weight:600;white-space:nowrap">{{ r.price }}</span></div></sc-for></div>
+<div data-reveal="" style="background:#1c1b19;border:1px solid #2a2825;border-radius:20px;padding:clamp(22px,3cqw,32px)"><h3 style="margin:0 0 8px;font:600 21px/1.2 'Hanken Grotesk',sans-serif">À la carte</h3><sc-for list="{{ alaCarte }}" as="r" hint-placeholder-count="5"><div style="display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-top:1px solid #2a2825;font:400 18px/1.35 'Hanken Grotesk',sans-serif"><span style="color:#c4bfb6">{{ r.name }}</span><span style="font-weight:600;white-space:nowrap">{{ r.price }}</span></div></sc-for></div>
+</div>
+<div data-reveal="" style="background:#1c1b19;border:1px solid #2a2825;border-radius:20px;padding:clamp(22px,3cqw,32px)"><h3 style="margin:0 0 8px;font:600 21px/1.2 'Hanken Grotesk',sans-serif">Portrait collections</h3><sc-for list="{{ collections }}" as="r" hint-placeholder-count="6"><div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 0;border-top:1px solid #2a2825;font:400 18px/1.35 'Hanken Grotesk',sans-serif"><span style="display:flex;flex-direction:column;gap:4px"><span style="font-weight:600">{{ r.name }}</span><span style="color:#a9a49b;font-size:17px">{{ r.detail }}</span></span><span style="font-weight:600;white-space:nowrap">{{ r.price }}</span></div></sc-for>
+<div style="margin-top:10px;padding:16px 18px;border-radius:12px;background:#24221f;font:500 17px/1.4 'Hanken Grotesk',sans-serif;color:oklch(0.82 0.09 55)">Save 10% when you order within one week of proof delivery.</div></div>
+</div>
+<p style="margin:20px 0 0;font:400 17px/1.5 'Hanken Grotesk',sans-serif;color:#a9a49b;text-wrap:pretty">What's a sheet? One 8×10, two 5×7s, four 3×5s or eight wallets.</p>
+</section>
+</sc-if>
+
+<sc-if value="{{ isCommercial }}" hint-placeholder-val="{{ false }}">
+<section data-screen-label="Commercial" style="position:relative;height:clamp(520px,84vh,880px);overflow:hidden;display:flex;align-items:flex-end;background:#0e0d0c">
+<div data-parallax="" style="position:absolute;inset:0;will-change:transform"><img data-kb="" src="assets/com_09.jpg" alt="" style="width:100%;height:118%;object-fit:cover;object-position:50% 50%;display:block"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,19,18,.2) 0%,rgba(20,19,18,0) 30%,rgba(20,19,18,.35) 60%,rgba(20,19,18,.94) 100%)"></div>
+<div style="position:relative;width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(20px,4cqw,48px) clamp(40px,6cqw,80px)">
+<div data-rise="1" style="font:500 17px/1 'Hanken Grotesk',sans-serif;color:oklch(0.82 0.09 55)">Commercial</div>
+<h1 data-rise="2" style="margin:18px 0 0;max-width:900px;font:700 clamp(44px,7cqw,88px)/1 'Hanken Grotesk',sans-serif;letter-spacing:-.045em;text-wrap:balance">Trusted by businesses large and small.</h1>
+<p data-rise="3" style="margin:22px 0 0;max-width:640px;font:400 clamp(18px,1.8cqw,21px)/1.55 'Hanken Grotesk',sans-serif;color:#d6d1c8;text-wrap:pretty">Headshots, products and real estate — published in trade magazines, billboards, catalogs, annual reports and more.</p>
+</div>
+</section>
+<section style="max-width:1240px;margin:0 auto;padding:clamp(56px,7cqw,96px) clamp(20px,4cqw,48px) 0">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px">
+<sc-for list="{{ galCommercial }}" as="g" hint-placeholder-count="4"><div data-reveal="" style="border-radius:14px;overflow:hidden;background:#1c1b19;aspect-ratio:3/4"><img src="{{ g }}" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div></sc-for>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{ isSchools }}" hint-placeholder-val="{{ false }}">
+<section data-screen-label="Schools and sports" style="position:relative;height:clamp(520px,84vh,880px);overflow:hidden;display:flex;align-items:flex-end;background:#0e0d0c">
+<div data-parallax="" style="position:absolute;inset:0;will-change:transform"><img data-kb="" src="assets/sports_team.jpg" alt="" style="width:100%;height:118%;object-fit:cover;object-position:50% 35%;display:block"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,19,18,.2) 0%,rgba(20,19,18,0) 30%,rgba(20,19,18,.35) 60%,rgba(20,19,18,.94) 100%)"></div>
+<div style="position:relative;width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(20px,4cqw,48px) clamp(40px,6cqw,80px)">
+<div data-rise="1" style="font:500 17px/1 'Hanken Grotesk',sans-serif;color:oklch(0.82 0.09 55)">Schools &amp; sports</div>
+<h1 data-rise="2" style="margin:18px 0 0;max-width:900px;font:700 clamp(44px,7cqw,88px)/1 'Hanken Grotesk',sans-serif;letter-spacing:-.045em;text-wrap:balance">School photos are our specialty.</h1>
+<p data-rise="3" style="margin:22px 0 0;max-width:640px;font:400 clamp(18px,1.8cqw,21px)/1.55 'Hanken Grotesk',sans-serif;color:#d6d1c8;text-wrap:pretty">Nearly 10,000 school portraits every year, and the chosen photographers for over a dozen youth leagues.</p>
+</div>
+</section>
+<section style="max-width:1240px;margin:0 auto;padding:clamp(56px,7cqw,96px) clamp(20px,4cqw,48px) 0">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(24px,4cqw,48px)">
+<div data-reveal="" style="display:flex;flex-direction:column;gap:20px"><div style="border-radius:20px;overflow:hidden;aspect-ratio:4/3"><img src="assets/sports_team.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div><h2 style="margin:0;font:600 28px/1.15 'Hanken Grotesk',sans-serif;letter-spacing:-.03em">School portraits</h2><p style="margin:0;font:400 18px/1.6 'Hanken Grotesk',sans-serif;color:#c4bfb6;text-wrap:pretty">Each year we photograph nearly 10,000 kids, from preschool through seniors. Contact us to find out how you can provide the absolute best school portraits to your students.</p></div>
+<div data-reveal="" style="display:flex;flex-direction:column;gap:20px"><div style="border-radius:20px;overflow:hidden;aspect-ratio:4/3"><img src="assets/schools/04.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block"></div><h2 style="margin:0;font:600 28px/1.15 'Hanken Grotesk',sans-serif;letter-spacing:-.03em">Youth sports leagues</h2><p style="margin:0;font:400 18px/1.6 'Hanken Grotesk',sans-serif;color:#c4bfb6;text-wrap:pretty">The chosen photographers for over a dozen youth leagues — individual and team photos for thousands of kids. Participating leagues earn commissions from photo sales to help fund their programs. Win/win.</p></div>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
+<section data-screen-label="About" style="position:relative;height:clamp(520px,84vh,880px);overflow:hidden;display:flex;align-items:flex-end;background:#0e0d0c">
+<div data-parallax="" style="position:absolute;inset:0;will-change:transform"><img data-kb="" src="assets/sen_violin.jpg" alt="" style="width:100%;height:118%;object-fit:cover;object-position:50% 40%;display:block"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,19,18,.2) 0%,rgba(20,19,18,0) 30%,rgba(20,19,18,.35) 60%,rgba(20,19,18,.94) 100%)"></div>
+<div style="position:relative;width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(20px,4cqw,48px) clamp(40px,6cqw,80px)">
+<div data-rise="1" style="font:500 17px/1 'Hanken Grotesk',sans-serif;color:oklch(0.82 0.09 55)">About the studio</div>
+<h1 data-rise="2" style="margin:18px 0 0;max-width:900px;font:700 clamp(44px,7cqw,88px)/1 'Hanken Grotesk',sans-serif;letter-spacing:-.045em;text-wrap:balance">Unique, memorable images since 1999.</h1>
+<p data-rise="3" style="margin:22px 0 0;max-width:640px;font:400 clamp(18px,1.8cqw,21px)/1.55 'Hanken Grotesk',sans-serif;color:#d6d1c8;text-wrap:pretty">Located in historic downtown Sayre, PA — always striving to be the area's premiere source for all types of photography.</p>
+</div>
+</section>
+<section style="max-width:1240px;margin:0 auto;padding:clamp(56px,7cqw,96px) clamp(20px,4cqw,48px) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,5cqw,72px);align-items:start">
+<div>
+<p style="margin:0;font:400 19px/1.65 'Hanken Grotesk',sans-serif;color:#c4bfb6;text-wrap:pretty">Owner and photographer Jim Smith has been working in studios for nearly 30 years. The experience of shooting thousands of sessions, weddings and events has honed his style: classic yet contemporary, with a focus on subject and great lighting.</p>
+<p style="margin:18px 0 0;font:400 19px/1.65 'Hanken Grotesk',sans-serif;color:#c4bfb6;text-wrap:pretty">Never one to follow trends, our images and editing strive to be timeless — with an eye on the best of current looks and technique.</p>
+</div>
+<div style="aspect-ratio:4/5;max-height:560px;width:100%;border-radius:20px;background:repeating-linear-gradient(135deg,#1c1b19 0 14px,#211f1c 14px 28px);border:1px solid #2a2825;display:flex;align-items:flex-end;padding:24px"><span style="font:400 16px/1.3 'DM Mono',monospace;color:#8a857c">Photo of Jim in the studio</span></div>
+</section>
+</sc-if>
+
+<sc-if value="{{ contactWide }}" hint-placeholder-val="{{ false }}">
+<section data-screen-label="Contact" style="position:relative;height:clamp(520px,84vh,880px);overflow:hidden;display:flex;align-items:flex-end;background:#0e0d0c">
+<div data-parallax="" style="position:absolute;inset:0;will-change:transform"><img data-kb="" src="assets/sen_redhead.jpg" alt="" style="width:100%;height:118%;object-fit:cover;object-position:46% 30%;display:block"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,19,18,.2) 0%,rgba(20,19,18,0) 30%,rgba(20,19,18,.35) 60%,rgba(20,19,18,.94) 100%)"></div>
+<div style="position:relative;width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(20px,4cqw,48px) clamp(40px,6cqw,80px)">
+<div data-rise="1" style="font:500 17px/1 'Hanken Grotesk',sans-serif;color:oklch(0.82 0.09 55)">Contact</div>
+<h1 data-rise="2" style="margin:18px 0 0;max-width:900px;font:700 clamp(44px,7cqw,88px)/1 'Hanken Grotesk',sans-serif;letter-spacing:-.045em;text-wrap:balance">Come see us on Desmond Street.</h1>
+<p data-rise="3" style="margin:22px 0 0;max-width:640px;font:400 clamp(18px,1.8cqw,21px)/1.55 'Hanken Grotesk',sans-serif;color:#d6d1c8;text-wrap:pretty">Sessions are by appointment. Call or send a message and we'll get back to you.</p>
+</div>
+</section>
+<section style="max-width:1240px;margin:0 auto;padding:clamp(56px,7cqw,96px) clamp(20px,4cqw,48px) clamp(64px,8cqw,112px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,5cqw,72px);align-items:start">
+<div>
+<div style="display:flex;flex-direction:column;font:400 18px/1.4 'Hanken Grotesk',sans-serif">
+<div style="display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-top:1px solid #2a2825"><span style="color:#a9a49b">Studio</span><span style="text-align:right">120 Desmond St., Sayre, PA 18840</span></div>
+<div style="display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-top:1px solid #2a2825"><span style="color:#a9a49b">Phone</span><a href="tel:5708881363" style="text-decoration:none">570-888-1363</a></div>
+<div style="display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-top:1px solid #2a2825;border-bottom:1px solid #2a2825"><span style="color:#a9a49b">Hours</span><span style="text-align:right">Tuesday – Friday, 10am – 6pm</span></div>
+</div>
+<div style="margin-top:28px;border-radius:20px;overflow:hidden;height:300px;border:1px solid #2a2825"><iframe title="Map of the studio" src="https://maps.google.com/maps?q=41.9816,-76.5153&amp;z=15&amp;output=embed" style="width:100%;height:100%;border:0;filter:grayscale(1) invert(.9) contrast(.9)" loading="lazy"></iframe></div>
+</div>
+<div style="background:#1c1b19;border:1px solid #2a2825;border-radius:24px;padding:clamp(24px,3cqw,40px)">
+<sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+<form onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:18px">
+<h2 style="margin:0 0 4px;font:600 26px/1.2 'Hanken Grotesk',sans-serif;letter-spacing:-.02em">Send a message</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:14px">
+<label style="display:flex;flex-direction:column;gap:8px;font:500 16px/1 'Hanken Grotesk',sans-serif;color:#a9a49b">First name<input required="required" style="height:52px;padding:0 16px;border-radius:12px;border:1px solid #34312d;background:#141312;color:#f2efe9;font-size:17px"></label>
+<label style="display:flex;flex-direction:column;gap:8px;font:500 16px/1 'Hanken Grotesk',sans-serif;color:#a9a49b">Last name<input required="required" style="height:52px;padding:0 16px;border-radius:12px;border:1px solid #34312d;background:#141312;color:#f2efe9;font-size:17px"></label>
+</div>
+<label style="display:flex;flex-direction:column;gap:8px;font:500 16px/1 'Hanken Grotesk',sans-serif;color:#a9a49b">Email<input type="email" required="required" style="height:52px;padding:0 16px;border-radius:12px;border:1px solid #34312d;background:#141312;color:#f2efe9;font-size:17px"></label>
+<label style="display:flex;flex-direction:column;gap:8px;font:500 16px/1 'Hanken Grotesk',sans-serif;color:#a9a49b">Subject<input required="required" placeholder="Senior session, wedding date…" style="height:52px;padding:0 16px;border-radius:12px;border:1px solid #34312d;background:#141312;color:#f2efe9;font-size:17px"></label>
+<label style="display:flex;flex-direction:column;gap:8px;font:500 16px/1 'Hanken Grotesk',sans-serif;color:#a9a49b">Message<textarea required="required" rows="5" style="padding:14px 16px;border-radius:12px;border:1px solid #34312d;background:#141312;color:#f2efe9;font-size:17px;line-height:1.5;resize:vertical"></textarea></label>
+<button type="submit" style="height:56px;border-radius:12px;border:none;background:oklch(0.74 0.11 55);color:#141312;font:600 17px/1 'Hanken Grotesk',sans-serif;cursor:pointer">Send message</button>
+</form>
+</sc-if>
+<sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;flex-direction:column;gap:14px;padding:24px 0"><h2 style="margin:0;font:700 34px/1.1 'Hanken Grotesk',sans-serif;letter-spacing:-.03em">Thanks — we got it.</h2><p style="margin:0;font:400 18px/1.55 'Hanken Grotesk',sans-serif;color:#c4bfb6">We'll be in touch soon. Need us sooner? Call 570-888-1363, Tuesday – Friday.</p></div>
+</sc-if>
+</div>
+</section>
+</sc-if>
+<sc-if value="{{ contactNarrow }}" hint-placeholder-val="{{ false }}">
+<section data-screen-label="Contact (mobile)" style="padding:32px 20px 64px">
+<div data-rise="1" style="font:500 17px/1 'Hanken Grotesk',sans-serif;color:oklch(0.8 0.09 55)">Contact</div>
+<h1 data-rise="2" style="margin:14px 0 0;font:700 42px/1.02 'Hanken Grotesk',sans-serif;letter-spacing:-.045em;text-wrap:balance">Come see us on Desmond Street.</h1>
+<p data-rise="3" style="margin:14px 0 0;font:400 18px/1.5 'Hanken Grotesk',sans-serif;color:#c4bfb6;text-wrap:pretty">Sessions are by appointment, Tuesday – Friday, 10am – 6pm.</p>
+<div data-rise="4" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px">
+<a href="tel:5708881363" style="grid-column:1/3;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 20px;border-radius:16px;background:oklch(0.74 0.11 55);color:#141312;text-decoration:none"><span style="font:600 18px/1 'Hanken Grotesk',sans-serif">Call the studio</span><span style="font:500 17px/1 'Hanken Grotesk',sans-serif">570-888-1363</span></a>
+<a href="https://maps.google.com/?q=120+Desmond+St,+Sayre,+PA+18840" target="_blank" rel="noopener" style="display:flex;flex-direction:column;justify-content:space-between;min-height:104px;padding:16px;border-radius:16px;background:#1c1b19;border:1px solid #2a2825;text-decoration:none;color:#f2efe9"><span style="font:600 18px/1.1 'Hanken Grotesk',sans-serif">Directions</span><span style="font:400 16px/1.3 'Hanken Grotesk',sans-serif;color:#a9a49b">120 Desmond St.</span></a>
+<a href="#contact-form" style="display:flex;flex-direction:column;justify-content:space-between;min-height:104px;padding:16px;border-radius:16px;background:#1c1b19;border:1px solid #2a2825;text-decoration:none;color:#f2efe9"><span style="font:600 18px/1.1 'Hanken Grotesk',sans-serif">Message</span><span style="font:400 16px/1.3 'Hanken Grotesk',sans-serif;color:#a9a49b">Send us a note</span></a>
+</div>
+<div data-reveal="" style="margin-top:24px;border-radius:20px;overflow:hidden;border:1px solid #2a2825;background:#1c1b19">
+<div style="height:200px"><iframe title="Map of the studio" src="https://maps.google.com/maps?q=41.9816,-76.5153&amp;z=15&amp;output=embed" style="width:100%;height:100%;border:0;filter:grayscale(1) invert(.9) contrast(.9)" loading="lazy"></iframe></div>
+<div style="padding:16px 18px;display:flex;flex-direction:column;gap:4px"><span style="font:600 18px/1.3 'Hanken Grotesk',sans-serif">120 Desmond St., Sayre, PA 18840</span><span style="font:400 16px/1.4 'Hanken Grotesk',sans-serif;color:#a9a49b">Historic downtown Sayre</span></div>
+</div>
+<div id="contact-form" data-reveal="" style="margin-top:24px;background:#1c1b19;border:1px solid #2a2825;border-radius:20px;padding:22px 18px;scroll-margin-top:84px">
+<sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+<form onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:18px">
+<h2 style="margin:0 0 4px;font:600 26px/1.2 'Hanken Grotesk',sans-serif;letter-spacing:-.02em">Send a message</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:14px">
+<label style="display:flex;flex-direction:column;gap:8px;font:500 16px/1 'Hanken Grotesk',sans-serif;color:#a9a49b">First name<input required="required" style="height:52px;padding:0 16px;border-radius:12px;border:1px solid #34312d;background:#141312;color:#f2efe9;font-size:17px"></label>
+<label style="display:flex;flex-direction:column;gap:8px;font:500 16px/1 'Hanken Grotesk',sans-serif;color:#a9a49b">Last name<input required="required" style="height:52px;padding:0 16px;border-radius:12px;border:1px solid #34312d;background:#141312;color:#f2efe9;font-size:17px"></label>
+</div>
+<label style="display:flex;flex-direction:column;gap:8px;font:500 16px/1 'Hanken Grotesk',sans-serif;color:#a9a49b">Email<input type="email" required="required" style="height:52px;padding:0 16px;border-radius:12px;border:1px solid #34312d;background:#141312;color:#f2efe9;font-size:17px"></label>
+<label style="display:flex;flex-direction:column;gap:8px;font:500 16px/1 'Hanken Grotesk',sans-serif;color:#a9a49b">Subject<input required="required" placeholder="Senior session, wedding date…" style="height:52px;padding:0 16px;border-radius:12px;border:1px solid #34312d;background:#141312;color:#f2efe9;font-size:17px"></label>
+<label style="display:flex;flex-direction:column;gap:8px;font:500 16px/1 'Hanken Grotesk',sans-serif;color:#a9a49b">Message<textarea required="required" rows="5" style="padding:14px 16px;border-radius:12px;border:1px solid #34312d;background:#141312;color:#f2efe9;font-size:17px;line-height:1.5;resize:vertical"></textarea></label>
+<button type="submit" style="height:56px;border-radius:12px;border:none;background:oklch(0.74 0.11 55);color:#141312;font:600 17px/1 'Hanken Grotesk',sans-serif;cursor:pointer">Send message</button>
+</form>
+</sc-if>
+<sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;flex-direction:column;gap:14px;padding:24px 0"><h2 style="margin:0;font:700 34px/1.1 'Hanken Grotesk',sans-serif;letter-spacing:-.03em">Thanks — we got it.</h2><p style="margin:0;font:400 18px/1.55 'Hanken Grotesk',sans-serif;color:#c4bfb6">We'll be in touch soon. Need us sooner? Call 570-888-1363, Tuesday – Friday.</p></div>
+</sc-if>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{ notContact }}" hint-placeholder-val="{{ true }}">
+<section data-reveal="" style="max-width:1240px;margin:0 auto;padding:clamp(72px,10cqw,128px) clamp(20px,4cqw,48px)">
+<div style="background:#1c1b19;border:1px solid #2a2825;border-radius:clamp(20px,2.4cqw,28px);padding:clamp(32px,5cqw,64px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px">
+<div style="max-width:560px"><h2 style="margin:0;font:700 clamp(32px,4cqw,48px)/1.05 'Hanken Grotesk',sans-serif;letter-spacing:-.04em">Ready when you are.</h2><p style="margin:14px 0 0;font:400 19px/1.5 'Hanken Grotesk',sans-serif;color:#a9a49b">Sessions are by appointment, Tuesday – Friday, 10am – 6pm.</p></div>
+<div style="display:flex;flex-wrap:wrap;gap:12px">
+<a href="#" onClick="{{ goContact }}" style="display:inline-flex;align-items:center;justify-content:center;height:54px;padding:0 26px;border-radius:12px;background:oklch(0.74 0.11 55);color:#141312;font:600 17px/1 'Hanken Grotesk',sans-serif;text-decoration:none">Book a session</a>
+<a href="tel:5708881363" style="display:inline-flex;align-items:center;justify-content:center;height:54px;padding:0 24px;border-radius:12px;background:#24221f;font:600 17px/1 'Hanken Grotesk',sans-serif;text-decoration:none">570-888-1363</a>
+</div>
+</div>
+</section>
+</sc-if>
+</main>
+
+<footer style="border-top:1px solid #2a2825">
+<div style="max-width:1240px;margin:0 auto;padding:48px clamp(20px,4cqw,48px) 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:32px">
+<div style="display:flex;flex-direction:column;gap:10px"><img src="assets/logo-white.png" alt="Smith Photography" style="height:48px;width:auto;align-self:flex-start;display:block;margin-bottom:6px"><div style="font:400 17px/1.5 'Hanken Grotesk',sans-serif;color:#a9a49b">The Twin Tiers' studio for senior photos, weddings, portraits and more.</div></div>
+<div style="display:flex;flex-direction:column;gap:6px;font:400 17px/1.5 'Hanken Grotesk',sans-serif;color:#c4bfb6"><span>120 Desmond St.</span><span>Sayre, PA 18840</span><a href="tel:5708881363" style="text-decoration:none">570-888-1363</a><span>Tue – Fri, 10am – 6pm</span></div>
+<div style="display:flex;flex-direction:column;gap:10px"><sc-for list="{{ navAll }}" as="item" hint-placeholder-count="8"><a href="#" onClick="{{ item.go }}" style="font:400 17px/1.2 'Hanken Grotesk',sans-serif;color:#c4bfb6;text-decoration:none">{{ item.label }}</a></sc-for></div>
+</div>
+<div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,4cqw,48px) 32px;font:400 16px/1 'Hanken Grotesk',sans-serif;color:#7d786f">© 2026 Smith Photography</div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;startPage&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;weddings&quot;,&quot;seniors&quot;,&quot;portraits&quot;,&quot;commercial&quot;,&quot;schools&quot;,&quot;about&quot;,&quot;contact&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Preview&quot;}}">
+class Component extends DCLogic {
+  state = { svc: 0, page: (typeof location !== 'undefined' && new URLSearchParams(location.search).get('page')) || this.props.startPage || 'home', menu: false, w: typeof window !== 'undefined' ? window.innerWidth : 1280, sent: false };
+  componentDidMount() {
+    this.onR = () => this.setState({ w: this.rootEl ? this.rootEl.getBoundingClientRect().width / (this.rootScale || 1) : window.innerWidth }); window.addEventListener('resize', this.onR);
+    if (this.rootEl && window.ResizeObserver) { this.ro = new ResizeObserver((es) => { const w = es[0].contentRect.width; if (Math.abs(w - this.state.w) > 1) this.setState({ w }); }); this.ro.observe(this.rootEl); }
+    this.still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.ease = 'cubic-bezier(.2,.7,.2,1)';
+    this.io = new IntersectionObserver((es) => {
+      let n = 0;
+      es.forEach((en) => { if (!en.isIntersecting) return; const el = en.target; this.io.unobserve(el);
+        el.animate([{ opacity: 0, transform: 'translateY(32px)' }, { opacity: 1, transform: 'none' }], { duration: 900, delay: (n++) * 80, easing: this.ease, fill: 'backwards' }).onfinish = () => { el.style.opacity = ''; };
+        el.style.opacity = ''; });
+    }, { rootMargin: '0px 0px -6% 0px' });
+    this.onS = () => { const y = window.scrollY; document.querySelectorAll('[data-parallax]').forEach((el) => { el.style.transform = 'translate3d(0,' + (y * 0.32) + 'px,0)'; }); };
+    if (!this.still) window.addEventListener('scroll', this.onS, { passive: true });
+    setTimeout(() => this.animatePage(), 60);
+  }
+  rootRef = (el) => { this.rootEl = el; };
+  componentWillUnmount() { this.ro && this.ro.disconnect(); window.removeEventListener('resize', this.onR); window.removeEventListener('scroll', this.onS); this.io && this.io.disconnect(); }
+  componentDidUpdate(prev, prevState) {
+    if (prev.startPage !== this.props.startPage && this.props.startPage) this.setState({ page: this.props.startPage });
+    if (prevState.page !== this.state.page) requestAnimationFrame(() => { this.onS && this.onS(); this.animatePage(); });
+  }
+  svcs(list) {
+    const a = this.state.svc;
+    const out = list.map((s, i) => ({ ...s, pick: () => { if (this.state.svc !== i) this.setState({ svc: i }); },
+      color: i === a ? '#f2efe9' : '#6f6a62', priceColor: i === a ? 'oklch(0.8 0.09 55)' : '#5a5650',
+      op: i === a ? 1 : 0, scale: i === a ? 1 : 1.06 }));
+    this._active = out[a];
+    return out;
+  }
+  animatePage() {
+    if (this.still) return;
+    const fresh = (sel) => Array.from(document.querySelectorAll(sel + ':not([data-a])')).map((el) => { el.setAttribute('data-a', ''); return el; });
+    fresh('[data-bg]').forEach((el) => { const two = el.getAttribute('data-bg') === '2';
+      el.animate(two ? [{ transform: 'translate3d(5%,3%,0) rotate(0deg)' }, { transform: 'translate3d(-6%,-2%,0) rotate(-10deg) scale(1.08)' }]
+        : [{ transform: 'translate3d(-5%,-3%,0) rotate(0deg)' }, { transform: 'translate3d(6%,4%,0) rotate(9deg) scale(1.1)' }],
+        { duration: two ? 17000 : 23000, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' }); });
+    fresh('[data-kb]').forEach((el) => el.animate([{ transform: 'scale(1.14)' }, { transform: 'scale(1)' }], { duration: 2600, easing: this.ease, fill: 'both' }));
+    const expo = 'cubic-bezier(.16,1,.3,1)';
+    fresh('[data-rise]').forEach((el) => {
+      const d = 120 + (+el.getAttribute('data-rise') || 0) * 140;
+      if (el.tagName === 'H1') el.animate([
+        { opacity: 0, filter: 'blur(14px)', transform: 'translateY(18px) scale(.985)', letterSpacing: '-.025em' },
+        { opacity: 1, filter: 'blur(0px)', transform: 'none', letterSpacing: '-.045em' }
+      ], { duration: 1600, delay: d, easing: expo, fill: 'backwards' });
+      else el.animate([{ opacity: 0, filter: 'blur(6px)', transform: 'translateY(14px)' }, { opacity: 1, filter: 'blur(0px)', transform: 'none' }], { duration: 1200, delay: d + 200, easing: expo, fill: 'backwards' });
+    });
+    fresh('[data-reveal]').forEach((el) => { el.style.opacity = '0'; this.io.observe(el); });
+  }
+  go(p) { return (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ page: p, menu: false, sent: false }); window.scrollTo(0, 0); }; }
+  renderVals() {
+    const { page, menu, w, sent } = this.state;
+    const wide = w >= 1040;
+    const pages = [['weddings','Weddings'],['seniors','Seniors'],['portraits','Family & kids'],['commercial','Commercial'],['schools','Schools & sports'],['about','About']];
+    const mk = ([k, label]) => ({ label, go: this.go(k), color: page === k ? 'oklch(0.8 0.09 55)' : '#f2efe9' });
+    const heroes = { couple: 'assets/home_couple.jpg', wedding: 'assets/wed_garden.jpg', senior: 'assets/sen_redhead.jpg', family: 'assets/port_mother_son_bw.jpg' };
+    const g = (dir, ids) => ids.map(i => `assets/${dir}/${i}.jpg`);
+    return {
+      rootRef: this.rootRef, wide, narrow: !wide, menuOpen: menu && !wide, menuLabel: menu ? 'Close' : 'Menu',
+      toggleMenu: () => this.setState(s => ({ menu: !s.menu })),
+      nav: [['weddings','Weddings'],['seniors','Seniors'],['portraits','Portraits'],['about','About']].map(mk), navAll: [['home','Home'], ...pages, ['contact','Contact']].map(mk),
+      goHome: this.go('home'), goContact: this.go('contact'), goWeddings: this.go('weddings'), goAbout: this.go('about'),
+      isHome: page === 'home', isWeddings: page === 'weddings', isSeniors: page === 'seniors', isPortraits: page === 'portraits',
+      isCommercial: page === 'commercial', isSchools: page === 'schools', isAbout: page === 'about', isContact: page === 'contact', contactWide: page === 'contact' && wide, contactNarrow: page === 'contact' && !wide, notContact: page !== 'contact',
+      heroImg: heroes[this.props.heroImage ?? 'couple'] || heroes.couple,
+      services: this.svcs([
+        { name: 'Weddings', detail: '8 hours, every edited file', price: '$1,999', img: 'assets/wed_veil.jpg', pos: '50% 30%', go: this.go('weddings'), cta: 'See weddings' },
+        { name: 'Senior photos', detail: 'In the studio and all over town', price: 'First outfit free', img: 'assets/sen_autumn_wall.jpg', pos: '50% 20%', go: this.go('seniors'), cta: 'See senior photos' },
+        { name: 'Family & kids', detail: 'Babies, kids, families — even pets', price: 'From $30', img: 'assets/port_boy_vest.jpg', pos: '50% 25%', go: this.go('portraits'), cta: 'See portraits' },
+        { name: 'Commercial', detail: 'Headshots, products, real estate', price: '', img: 'assets/com_09.jpg', pos: '50% 50%', go: this.go('commercial'), cta: 'See commercial' },
+        { name: 'Schools & sports', detail: 'School portraits and youth leagues', price: '', img: 'assets/sports_team.jpg', pos: '50% 40%', go: this.go('schools'), cta: 'See schools & sports' },
+      ]),
+      active: this._active,
+      galWeddings: g('weddings', ['07','09','10','03','28','12','13','26','14','18','21','29']),
+      galSeniors: g('seniors', ['03','16','08','09','23','02','13','29','14','26','12','22']),
+      galPortraits: ['assets/port_baby_crate.jpg', ...g('portraits', ['06','02','10','08','04','09']), 'assets/port_mother_son_bw.jpg', 'assets/port_boy_vest.jpg'],
+      galCommercial: ['assets/commercial/08.jpg', ...g('commercial', ['02','04','05'])],
+      seniorFacts: [
+        { big: 'Free', label: 'Your first outfit' }, { big: '$10', label: 'Each additional outfit' },
+        { big: '7', label: 'Outfits in a single session' }, { big: '$0', label: 'Extra to shoot indoors and out' },
+      ],
+      sessionFees: [{ name: 'Studio / around town', price: '$30' }, { name: 'Location shoot (15 mile radius)', price: '$100' }],
+      collections: [
+        { name: 'Collection 1', detail: 'Any 3 sheets from your favorite pose', price: '$70' },
+        { name: 'Collection 2', detail: 'Any 5 sheets from your favorite 2 poses', price: '$100' },
+        { name: 'Collection 3', detail: 'Any 8 sheets from your favorite 3 poses', price: '$150' },
+        { name: 'Collection 4', detail: 'Any 12 sheets from your favorite 4 poses', price: '$180' },
+        { name: 'Collection 5', detail: 'Any 18 sheets from your favorite 5 poses', price: '$230' },
+        { name: 'Collection 6', detail: '25 or more sheets from any poses', price: '$11 / sheet' },
+      ],
+      alaCarte: [
+        { name: 'Extra pose, any collection', price: '$10' }, { name: '11×14 print', price: '$40' },
+        { name: '16×20', price: '$70' }, { name: '20×24', price: '$100' }, { name: '30×40', price: '$175' },
+      ],
+      sent, notSent: !sent,
+      submit: (e) => { e.preventDefault(); this.setState({ sent: true }); },
+    };
+  }
+}
+</script>
+</body>
+</html>

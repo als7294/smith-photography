@@ -355,7 +355,7 @@ class Component extends DCLogic {
   componentWillUnmount() { this.ro && this.ro.disconnect(); window.removeEventListener('resize', this.onR); window.removeEventListener('scroll', this.onS); this.io && this.io.disconnect(); }
   componentDidUpdate(prev, prevState) {
     if (prev.startPage !== this.props.startPage && this.props.startPage) this.setState({ page: this.props.startPage });
-    if (prevState.page !== this.state.page) requestAnimationFrame(() => { this.onS && this.onS(); this.animatePage(); });
+    if (this._lastPage !== this.state.page && ((this._lastPage = this.state.page), true)) requestAnimationFrame(() => { this.onS && this.onS(); this.animatePage(); });
   }
   svcs(list) {
     const a = this.state.svc;
